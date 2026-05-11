@@ -1,0 +1,34 @@
+_target_: src.models.ssc_module.SSCLitModule
+
+net:
+  _target_: src.models.components.RWKVPCSSC.PCSSC
+  class_num: 20
+  dim_feat: 1024
+  num_p0: 2048
+  num_pin: 4096
+  radius: 1
+  up_factors: [ 1, 2, 2 ]
+  grid_size: [0.18, 0.18, 0.14, 0.1]
+  hidden_dim: 128
+loss:
+  _target_: src.loss.ssc_loss.Loss
+  seg_weight: [1.406418612576426, 65.07586657125282, 1.9226573274055436, 1.4473676054171072, 0.7391541866226401, 0.30904113914371767, 2.829546130688378, 2.447848452636018, 12.386346909320308, 86.71955565221757, 16.18302612518108, 89.60221261884183, 14.574278805600855, 0.1506886211207765, 0.34468702963676945, 0.44819828369101805, 1.5990232161988662, 389.50165314096785, 341.82854128198363, 12.708209421773294]
+  sqrt: True
+
+optimizer:
+  _target_: torch.optim.Adamax
+  _partial_: true
+  lr: 0.0075
+  betas: [0.9, 0.999]
+  eps: 1e-08
+  weight_decay: 1e-4
+scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  _partial_: true
+  step_size: 1
+  gamma: 0.98
+  last_epoch: -1
+
+dataset: 3D-FRONT_pc
+
+class_num: 20

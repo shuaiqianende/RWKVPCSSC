@@ -1,0 +1,36 @@
+_target_: src.models.ssc_module.SSCLitModule
+
+net:
+  _target_: src.models.components.RWKVPCSSC.PCSSC
+  class_num: 12
+  dim_feat: 1024
+  num_p0: 1024
+  num_pin: 4096
+  radius: 0.15
+  up_factors: [ 2, 2, 2 ]
+  grid_size: [0.22, 0.17, 0.12, 0.08]
+  hidden_dim: 128
+
+loss:
+  _target_: src.loss.ssc_loss.Loss
+  seg_weight: [ 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+  sqrt: True
+  threshold: 0.01
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  betas: [0.9, 0.999]
+  eps: 1e-08
+  weight_decay: 1e-4
+scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  _partial_: true
+  step_size: 10
+  gamma: 0.99
+  last_epoch: -1
+
+dataset: nyucad_pc
+
+class_num: 11

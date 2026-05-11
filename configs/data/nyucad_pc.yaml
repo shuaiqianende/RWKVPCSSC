@@ -1,0 +1,9 @@
+_target_: src.data.ssc_datamodule.SSCDataModule
+dataset:
+  _partial_: True
+  _target_: src.data.components.nyucad_pc.NYUCAD
+data_dir: /Path/NYUCAD-PC/
+batch_size: 8
+num_workers: 0
+pin_memory: True
+persistent_workers: False

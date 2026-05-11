@@ -1,0 +1,11 @@
+_target_: src.data.pointssc_datamodule.SSCDataModule
+dataset:
+  _partial_: True
+  _target_: src.data.components.V2XSeqSPDDataset.V2XSeqSPD
+data_dir: /Path/PointSSC/scene_split
+batch_size: 1
+num_workers: 32
+pin_memory: True
+persistent_workers: True
+
+
