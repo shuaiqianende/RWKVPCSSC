@@ -52,7 +52,28 @@ We provide open-source access to our proposed datasets. Please download them fro
 We provide scripts to easily train and evaluate the model using default configurations.
 
 Train model on NYUCAD-PC dataset:
+```bash
 python src/train.py experiment=train_nyucad_pc
-
+```
 Train model on SSC-PC dataset:
+```bash
 python src/train.py experiment=train_ssc_pc
+```
+## Acknowledgements
+
+This project is inspired by and builds upon the excellent open-source works of [CasFusionNet](https://github.com/JinfengX/CasFusionNet) and [PointSSC](https://github.com/yyxssm/PointSSC). We sincerely thank the authors for their outstanding contributions to the 3D vision community.
+
+## Citation
+
+If you find our work useful in your research, please consider citing:
+
+```bibtex
+@inproceedings{he2025rwkv,
+  author = {He, Wenzhe and Chen, Xiaojun and Chen, Wentang and Wang, Hongyu and Liu, Ying and Li, Ruihui},
+  title = {RWKV-PCSSC: Exploring RWKV Model for Point Cloud Semantic Scene Completion},
+  booktitle = {Proceedings of the 33rd ACM International Conference on Multimedia},
+  pages = {161--170},
+  year = {2025},
+  doi = {10.1145/3746027.3754908}
+}
+```
